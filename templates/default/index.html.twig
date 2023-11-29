@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Bienvenue !</title>
-</head>
-<body>
-    <h1>Bienvenue !</h1>
-</body>
-</html>
+{% extends 'base.html.twig' %}
+
+{% block title %}Wild Series{% endblock %}
+
+{% block body %}
+<img src="{{ asset('build/images/Groot1.jpg') }}" alt=""/>
+<h1>{{ website }} index</h1>
+{% endblock %}
