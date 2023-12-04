@@ -1,3 +1,6 @@
+
+@import "~bootstrap/scss/bootstrap";
+
 $primary: #D47FFC;
 $danger: #D9d9d9;
 
@@ -10,4 +13,4 @@ $theme-colors: (
         "danger": $danger
 );
 
-@import "~bootstrap/scss/bootstrap";
+
