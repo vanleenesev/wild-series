@@ -19,24 +19,24 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         [
             'title' => 'The Good Place',
             'synopsis' => 'Une femme qui a mené une vie immorale se retrouve par erreur au Bon Endroit, une utopie après la mort. Elle doit apprendre à devenir une personne meilleure pour y rester.',
-            'category' => 'category_Comédie'
+            'category' => 'category_Comedie'
             
         ],
         [
             'title' => 'Stranger Things',
-            'synopsis' => 'En 1983, dans la petite ville de Hawkins, Indiana, un jeune garçon disparaît mystérieusement. Son ami et sa sœur, accompagnés d un groupe d amis, se lancent dans une enquête qui les mènera à découvrir un secret terrifiant.',
+            'synopsis' => 'En 1983, dans la petite ville de Hawkins, Indiana, un jeune garçon disparaît mystérieusement. Son ami et sa sœur, accompagnés d un groupe d amis',
             'category' => 'category_Fantastique'
             
         ],
         [
             'title' => 'American Horror Story',
-            'synopsis' => 'Une anthologie d’horreur télévisée créée par Ryan Murphy et Brad Falchuk. Chaque saison est conçue comme une mini-série autonome, suivant une histoire différente avec des personnages, des décors et parfois des membres de la distribution qui se chevauchent.',
+            'synopsis' => 'Une anthologie d’horreur télévisée. Chaque saison est conçue comme une mini-série autonome, suivant une histoire différente avec des personnages, des décors et parfois des membres de la distribution qui se chevauchent.',
             'category' => 'category_Horreur'
             
         ],
         [
             'title' => 'Lupin',
-            'synopsis' => 'Une série dramatique policière française créée par George Kay et François Uzan. La série est une adaptation du gentleman cambrioleur fictif Arsène Lupin des romans de Maurice Leblanc.',
+            'synopsis' => 'Une série dramatique policière française . La série est une adaptation du gentleman cambrioleur fictif Arsène Lupin des romans de Maurice Leblanc.',
             'category' => 'category_Aventure'
             
         ]
@@ -44,13 +44,15 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager) : void
     {
-        foreach (self::PROGRAM as $programData)
-        $program = new Program();
-        $program->setTitle($programData['title']);
-        $program->setSynopsis($programData['synopsis']);
-        $program->setCategory($this->getReference($programData['category']));
-        $this->addReference('program_' . $programData['title'] , $program);
-        $manager->persist($program);
+        foreach (self::PROGRAM as $programData) {
+            $program = new Program();
+            $program->setTitle($programData['title']);
+            $program->setSynopsis($programData['synopsis']);
+            $program->setCategory($this->getReference($programData['category']));
+            $this->addReference('program_' . $programData['title'] , $program);
+            $manager->persist($program);
+        }
+        $manager->flush();
     }
 
     static function getTitles(): array

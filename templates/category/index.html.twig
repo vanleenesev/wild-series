@@ -5,7 +5,15 @@
 
     <ul>
         {% for category in categories %}
-            <li>{{ category.name }}</li>
+            <li>
+            {{ category.name }}
+                       
+            <h2>{{ loop.index }} / {{ category.name }} </h2>
+             <a href="{{ path("category_show", { categoryName: category.name }) }}">Voir la fiche</a>
+          
+
+            
+            </li>
         {% endfor %}
     </ul>
 {% endblock %}

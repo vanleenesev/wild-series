@@ -3,12 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-         <img src="{{ asset('build/images/Capute.JPG') }}" alt=""/>
-       
         {% block stylesheets %}
          <header>
         {% include '_navbar.html.twig' %}
     </header>
+    <img src="{{ asset('build/images/CaptureV2.JPG') }}" alt=""/>
      {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
